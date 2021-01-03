@@ -1,5 +1,5 @@
 require('dotenv').config()
-const Twitter = require('twitter-v2')
+const Twitter = require('twitter-lite')
 const express = require('express')
 const cors = require('cors')
 
@@ -11,18 +11,20 @@ app.get('/', () => {
     console.log('welcome!')
 })
 
-//TODO: may need to use different client to access the v1.1 -> faves list
-
 app.get('/getTwit', (req, res) => {
     const client = new Twitter({
+        version: 1.1,
         consumer_key: process.env.REACT_APP_KEY,
         consumer_secret: process.env.REACT_APP_SECRET_KEY,
-        /*access_token_key: process.env.REACT_APP_ACCESS_TOKEN,
-        access_token_secret: process.env.REACT_APP_ACCESS_SECRET*/
+        access_token_key: process.env.REACT_APP_ACCESS_TOKEN,
+        access_token_secret: process.env.REACT_APP_ACCESS_SECRET
     })
 
     //endpoint url and params here
-    client.get('users/by/username/spazy_t')
+    client.get('favorites/list', {
+        count: 10,
+        screen_name: 'spazy_t'
+    })
     .then(data => {
         console.log('twit data:', data)
         res.send(data)
