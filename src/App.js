@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { getTwitUser } from './utils/helpers'
+import TwitUserForm from './containers/TwitUserForm'
 
 function App() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function App() {
       <header className="App-header">
         Hello world
       </header>
+      <TwitUserForm />
     </div>
   )
 }
