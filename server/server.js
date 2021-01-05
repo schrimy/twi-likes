@@ -32,7 +32,8 @@ app.get('/getTwit/:user', (req, res) => {
         res.send(data)
     })
     .catch(err => {
-        console.log('error with twit:', err)
+        console.log('error finding user', err)
+        res.status(404).send("sorry can't find that user")
     })
 })
 

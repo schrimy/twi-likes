@@ -6,7 +6,7 @@ const getTwitUser = async (userName) => {
         const data = await res.json()
         return data
     } catch(e) {
-        console.log('error getting twit data', e)
+        return Promise.reject(res)
     }
 }
 
