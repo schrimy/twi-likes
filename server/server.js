@@ -11,7 +11,9 @@ app.get('/', () => {
     console.log('welcome!')
 })
 
-app.get('/getTwit', (req, res) => {
+app.get('/getTwit/:user', (req, res) => {
+    const userName = req.params.user
+
     const client = new Twitter({
         version: 1.1,
         consumer_key: process.env.REACT_APP_KEY,
@@ -23,7 +25,7 @@ app.get('/getTwit', (req, res) => {
     //endpoint url and params here
     client.get('favorites/list', {
         count: 10,
-        screen_name: 'spazy_t'
+        screen_name: userName
     })
     .then(data => {
         console.log('twit data:', data)

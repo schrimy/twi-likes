@@ -1,11 +1,24 @@
 import React, { useState } from 'react'
+import { getTwitUser } from '../utils/helpers'
 
 const TwitUserForm = () => {
     const [userName, setUserName] = useState('')
 
+    const handleSubmit = (evt) => {
+        evt.preventDefault()
+
+        getTwitUser(userName)
+        .then((twitUser) => {
+        console.log('retrieved user info:', twitUser)
+        })
+        .catch(err => {
+        console.log('error fetching user data:', err)
+        })
+    }
+
     return(
         <div className='container'>
-            <form className='form-group'>
+            <form className='form-group' onSubmit={ handleSubmit }>
                 <input
                     type='text'
                     className='form-control'
