@@ -1,5 +1,9 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 import TwitUserForm from './containers/TwitUserForm'
+import FaveList from './containers/FaveList'
 
 function App() {
 
@@ -8,10 +12,11 @@ function App() {
       <header className="App-header">
         Hello world
       </header>
-      <TwitUserForm />
+      <Route exact path='/' component={ TwitUserForm } />
+      <Route path='/favourites' component={ FaveList } />
     </div>
   )
 }
 
-//TODO: routes for when tweets are found -> display list
-export default App
+//TODO: route to display list when faves are retrieved
+export default connect()(App)

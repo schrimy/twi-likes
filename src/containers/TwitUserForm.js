@@ -23,8 +23,6 @@ const TwitUserForm = (props) => {
             ? handleError()
             : receieveFaves(faveTweets)
 
-            //TODO: route to display list when faves are retrieved
-
             setUserName('')
         })
         .catch(err => {
