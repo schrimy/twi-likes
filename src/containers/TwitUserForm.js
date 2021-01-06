@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { getTwitUser } from '../utils/helpers'
+import { receieveFaves } from '../actions/favorites'
 
-//TODO: try again with boostrap alerts when username error occurs
+//TODO: try again with bootstrap alerts when username error occurs
 
-const TwitUserForm = () => {
+const TwitUserForm = (props) => {
+    const { receieveFaves } = props
     const [userName, setUserName] = useState('')
 
     const handleError = () => {
@@ -14,9 +17,14 @@ const TwitUserForm = () => {
         evt.preventDefault()
 
         getTwitUser(userName)
-        .then((twitUser) => {
-            console.log('retrieved user info:', twitUser)
-            if (twitUser.length === 0) { handleError() }
+        .then((faveTweets) => {
+            console.log('retrieved user info:', faveTweets)
+            faveTweets.length === 0
+            ? handleError()
+            : receieveFaves(faveTweets)
+
+            //TODO: route to display list when faves are retrieved
+
             setUserName('')
         })
         .catch(err => {
@@ -47,4 +55,4 @@ const TwitUserForm = () => {
     )
 }
 
-export default TwitUserForm
+export default connect(null, { receieveFaves })(TwitUserForm)
