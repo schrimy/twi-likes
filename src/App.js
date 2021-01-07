@@ -13,13 +13,13 @@ function App(props) {
   })
 
   return (
-    <div className="App">
+    <div className="App container">
       <header className="App-header">
         Twi likes
       </header>
       <TwitUserForm />
       {
-        faves.length !== 0 &&(
+        faves !== 0 &&(
           <FaveList />
         )
       }
@@ -27,12 +27,10 @@ function App(props) {
   )
 }
 
-//grabs the favourites state from the store, and returns an array obj version
+//grabs the favourites state from the store, and returns the length of that array
 function mapStateToProps({ favourites }) {
   return {
-    faves: Object.keys(favourites).map(fave => (
-      favourites[fave]
-    ))
+    faves: Object.keys(favourites).length
   }
 }
 

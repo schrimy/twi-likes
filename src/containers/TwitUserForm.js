@@ -32,7 +32,7 @@ const TwitUserForm = (props) => {
     }
 
     return(
-        <div className='container'>
+        <div>
             <form className='form-group' onSubmit={ handleSubmit }>
                 <input
                     type='text'

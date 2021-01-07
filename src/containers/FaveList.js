@@ -3,12 +3,28 @@ import { connect } from 'react-redux'
 
 import Fave from '../screens/Fave'
 
-const FaveList = () => {
+//displays a list of the returned favourite tweets, placing each in an individual fave component
+const FaveList = (props) => {
+    const { faveList } = props
+
     return(
         <div>
-            A faves list
+            {
+                faveList.map(fave => (
+                    <Fave key={ fave.id } data={ fave } />
+                ))
+            }
         </div>
     )
 }
 
-export default connect()(FaveList)
+//grabs the favourites from store state and returns an array verison
+function mapStateToProps({ favourites }) {
+    return {
+        faveList: Object.keys(favourites).map(fave => (
+            favourites[fave]
+        ))
+    }
+}
+
+export default connect(mapStateToProps)(FaveList)
