@@ -5,7 +5,9 @@ import Fave from '../screens/Fave'
 
 const FaveList = () => {
     return(
-        <div></div>
+        <div>
+            A faves list
+        </div>
     )
 }
 

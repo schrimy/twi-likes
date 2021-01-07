@@ -1,22 +1,39 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import TwitUserForm from './containers/TwitUserForm'
 import FaveList from './containers/FaveList'
 
-function App() {
+//displays the search form and if there are favourites returned from the mapState function then it displays the faves list too
+function App(props) {
+  const { faves } = props
+  //purly to check current faves store state
+  useEffect(() => {
+    console.log('faves array:', faves)
+  })
 
   return (
     <div className="App">
       <header className="App-header">
-        Hello world
+        Twi likes
       </header>
-      <Route exact path='/' component={ TwitUserForm } />
-      <Route path='/favourites' component={ FaveList } />
+      <TwitUserForm />
+      {
+        faves.length !== 0 &&(
+          <FaveList />
+        )
+      }
     </div>
   )
 }
 
-//TODO: route to display list when faves are retrieved
-export default connect()(App)
+//grabs the favourites state from the store, and returns an array obj version
+function mapStateToProps({ favourites }) {
+  return {
+    faves: Object.keys(favourites).map(fave => (
+      favourites[fave]
+    ))
+  }
+}
+
+export default connect(mapStateToProps)(App)
