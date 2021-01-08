@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { getTwitUser } from '../utils/helpers'
+import { getTwitLikes, getTwitUser } from '../utils/helpers'
 import { receieveFaves } from '../actions/favorites'
 
 //TODO: try again with bootstrap alerts when username error occurs
@@ -13,10 +13,12 @@ const TwitUserForm = (props) => {
         alert('Oh! User name not found, please check and try again')
     }
 
+    //TODO: get Twitter user details first
+    //TODO: do the async helper calls need to go into a thunk action?
     const handleSubmit = (evt) => {
         evt.preventDefault()
 
-        getTwitUser(userName)
+        getTwitLikes(userName)
         .then((faveTweets) => {
             console.log('retrieved user info:', faveTweets)
             faveTweets.length === 0
@@ -33,7 +35,7 @@ const TwitUserForm = (props) => {
 
     return(
         <div>
-            <form className='form-group' onSubmit={ handleSubmit }>
+            <form className='input-group mb-4' onSubmit={ handleSubmit }>
                 <input
                     type='text'
                     className='form-control'

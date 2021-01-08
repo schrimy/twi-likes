@@ -7,8 +7,12 @@ import Fave from '../screens/Fave'
 const FaveList = (props) => {
     const { faveList } = props
 
+    //show list of liked tweets and who they have been liked by
     return(
         <div>
+            <section className='mb-3'>
+                Tweets liked by:
+            </section>
             {
                 faveList.map(fave => (
                     <Fave key={ fave.id } data={ fave } />

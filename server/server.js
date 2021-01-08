@@ -11,7 +11,26 @@ app.get('/', () => {
     console.log('welcome!')
 })
 
-app.get('/getTwit/:user', (req, res) => {
+app.get('getUser/:user', (req, res) => {
+    const userName = req.params.user
+
+    const client = new Twitter({
+        version: 2,
+        consumer_key: process.env.REACT_APP_KEY,
+        consumer_secret: process.env.REACT_APP_SECRET_KEY,
+        access_token_key: process.env.REACT_APP_ACCESS_TOKEN,
+        access_token_secret: process.env.REACT_APP_ACCESS_SECRET
+    })
+
+    client.get('/users/by/username/', {
+        username: userName,
+        user: {
+            fields: 'profile_image_url'
+        }
+    })
+})
+
+app.get('/getTwits/:user', (req, res) => {
     const userName = req.params.user
 
     const client = new Twitter({
