@@ -10,9 +10,15 @@ const getTwitLikes = async (userName) => {
     }
 }
 
-//TODO: call server method to get user details via api 2
 const getTwitUser = async (userName) => {
     const res = await fetch(`http://localhost:3001/getUser/${userName}`)
+
+    try {
+        const user = await res.json()
+        return user
+    } catch(e) {
+        return Promise.reject(res)
+    }
 }
 
 export {
