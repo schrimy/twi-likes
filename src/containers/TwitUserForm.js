@@ -2,15 +2,9 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { handleUserInfo } from '../actions/shared'
 
-//TODO: try again with bootstrap alerts when username error occurs
-
 const TwitUserForm = (props) => {
-    const { handleUserInfo } = props
+    const { handleUserInfo, errorCallBack } = props
     const [userName, setUserName] = useState('')
-
-    const handleError = () => {
-        alert('Oh! User name not found, please check and try again')
-    }
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
@@ -21,7 +15,9 @@ const TwitUserForm = (props) => {
             setUserName('')
         })
         .catch(err => {
-            handleError()
+            //error caught from thunk action fires callback to display alert in app.js
+            console.log('error getting user data', err)
+            errorCallBack()
         })
     }
 
@@ -29,6 +25,7 @@ const TwitUserForm = (props) => {
         <div>
             <form className='input-group mb-4' onSubmit={ handleSubmit }>
                 <input
+                    autoFocus={true}
                     type='text'
                     className='form-control'
                     value={ userName }

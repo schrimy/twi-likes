@@ -8,7 +8,7 @@ const UserInfo = (props) => {
         <div className='container mb-3'>
             <div className='row'>
                 <div className='col-auto pl-0'>
-                    <img src={ profile_image_url } className='img-fluid rounded-circle' alt='twitteruser profile' />
+                    <img src={ profile_image_url } className='img-fluid rounded-circle' alt='twitter user profile' />
                 </div>
                 <div className='col pl-1'>
                     <strong className='row'>{ name }</strong>

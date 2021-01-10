@@ -12,7 +12,7 @@ const FaveList = (props) => {
     return(
         <div>
             <section className='mb-3'>
-                Tweets liked by:
+                <p className='mb-2'>Tweets liked by:</p>
                 <UserInfo userData={ user } />
             </section>
             {
