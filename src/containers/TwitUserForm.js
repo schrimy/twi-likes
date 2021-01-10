@@ -8,12 +8,21 @@ const TwitUserForm = (props) => {
     const { handleUserInfo } = props
     const [userName, setUserName] = useState('')
 
+    const handleError = () => {
+        alert('Oh! User name not found, please check and try again')
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault()
 
-        //TODO: clear user name input and test error handling i.e. alert
+        //thunk action returns promise to get info, has it's own .then when successful to populate store state
         handleUserInfo(userName)
-        //setUserName('')
+        .then(() => {
+            setUserName('')
+        })
+        .catch(err => {
+            handleError()
+        })
     }
 
     return(
