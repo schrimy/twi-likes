@@ -6,12 +6,13 @@ import FaveList from './containers/FaveList'
 
 //displays the search form and if there are favourites returned from the mapState function then it displays the faves list too
 function App(props) {
-  const { faves } = props
+  const { dataReady } = props
   //purly to check current faves store state
   useEffect(() => {
-    console.log('faves array:', faves)
+    console.log('data ready?:', dataReady)
   })
 
+  //if both user and faves are populated, show faves list
   return (
     <div className="App container">
       <header className="App-header">
@@ -19,7 +20,7 @@ function App(props) {
       </header>
       <TwitUserForm />
       {
-        faves !== 0 &&(
+        dataReady &&(
           <FaveList />
         )
       }
@@ -27,10 +28,10 @@ function App(props) {
   )
 }
 
-//grabs the favourites state from the store, and returns the length of that array
-function mapStateToProps({ favourites }) {
+//grabs the store state of favourites and user and returns a boolean based on if both are populated
+function mapStateToProps({ favourites, user }) {
   return {
-    faves: Object.keys(favourites).length
+    dataReady: Object.keys(favourites).length !== 0 && user !== null
   }
 }
 

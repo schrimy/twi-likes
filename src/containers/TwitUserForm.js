@@ -11,7 +11,7 @@ const TwitUserForm = (props) => {
     const handleSubmit = (evt) => {
         evt.preventDefault()
 
-        //TODO: clear user name input
+        //TODO: clear user name input and test error handling i.e. alert
         handleUserInfo(userName)
         //setUserName('')
     }
