@@ -17,7 +17,7 @@ const TwitUserForm = (props) => {
         .catch(err => {
             //error caught from thunk action fires callback to display alert in app.js
             console.log('error getting user data', err)
-            errorCallBack()
+            errorCallBack(true)
         })
     }
 

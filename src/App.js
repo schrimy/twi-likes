@@ -14,11 +14,6 @@ function App(props) {
     console.log('data ready?:', dataReady)
   })
 
-  const errorCb = () => {
-    console.log('error call back!')
-    setUserError(true)
-  }
-
   //TODO: maybe clear the state when a new search is initiated, therefore clearing the faveList
   //if both user and faves are populated, show faves list
   return (
@@ -26,7 +21,7 @@ function App(props) {
       <header className="App-header">
         Twi likes
       </header>
-      <TwitUserForm errorCallBack={ errorCb }/>
+      <TwitUserForm errorCallBack={ setUserError }/>
       {
         userError &&(
           <Alert cb={ setUserError } />
