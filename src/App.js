@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import TwitUserForm from './containers/TwitUserForm'
 import FaveList from './containers/FaveList'
+import Alert from './screens/Alert'
 
 //displays the search form and if there are favourites returned from the mapState function then it displays the faves list too
 function App(props) {
@@ -18,8 +19,7 @@ function App(props) {
     setUserError(true)
   }
 
-  //TODO: place error alert in own component
-  //TODO: maybe clear the state when a new search is initiated, therefor clearing the faveList
+  //TODO: maybe clear the state when a new search is initiated, therefore clearing the faveList
   //if both user and faves are populated, show faves list
   return (
     <div className="App container">
@@ -29,12 +29,7 @@ function App(props) {
       <TwitUserForm errorCallBack={ errorCb }/>
       {
         userError &&(
-          <div className="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Oh!</strong> That user name doesn't work, please try again.
-              <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={() => { setUserError(false) }}>
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
+          <Alert cb={ setUserError } />
         )
       }
       {
