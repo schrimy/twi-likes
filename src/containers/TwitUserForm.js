@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { handleUserInfo } from '../actions/shared'
+import { clearFaves } from '../actions/favorites'
 
 const TwitUserForm = (props) => {
-    const { handleUserInfo, errorCallBack } = props
+    const { handleUserInfo, clearFaves, errorCallBack } = props
     const [userName, setUserName] = useState('')
 
+    /*when submitting a user name search dispatch clearFaves to clear the favesList,
+    in case there is an error therefore not showing an unrelated list*/
     const handleSubmit = (evt) => {
         evt.preventDefault()
+        clearFaves()
 
         //thunk action returns promise to get info, has it's own .then when successful to populate store state
         handleUserInfo(userName)
@@ -44,4 +48,4 @@ const TwitUserForm = (props) => {
     )
 }
 
-export default connect(null, { handleUserInfo })(TwitUserForm)
+export default connect(null, { handleUserInfo, clearFaves })(TwitUserForm)

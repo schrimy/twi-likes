@@ -1,4 +1,4 @@
-import { RECEIVE_FAVE_TWEETS } from '../utils/constants'
+import { RECEIVE_FAVE_TWEETS, CLEAR_FAVE_TWEETS } from '../utils/constants'
 
 const favourites = (state = {}, action) => {
     switch(action.type) {
@@ -6,6 +6,8 @@ const favourites = (state = {}, action) => {
             return {
                 ...action.faveTweets
             }
+        case CLEAR_FAVE_TWEETS:
+            return {}
         default:
             return state
     }

@@ -14,7 +14,6 @@ function App(props) {
     console.log('data ready?:', dataReady)
   })
 
-  //TODO: maybe clear the state when a new search is initiated, therefore clearing the faveList
   //if both user and faves are populated, show faves list
   return (
     <div className="App container">
