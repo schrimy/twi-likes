@@ -4,15 +4,22 @@ import { connect } from 'react-redux'
 import TwitUserForm from './containers/TwitUserForm'
 import FaveList from './containers/FaveList'
 import Alert from './screens/Alert'
+import { TWITTER_DATA_KEY } from './utils/constants'
+import { handleLocalStorage } from './actions/shared'
 
 //displays the search form and if there are favourites returned from the mapState function then it displays the faves list too
 function App(props) {
-  const { dataReady } = props
+  const { dataReady, handleLocalStorage } = props
   const [userError, setUserError] = useState(false)
-  //purly to check current faves store state
+
+  //TODO: fire off localStorage data when populated to action
+  //useEffect to run on mount only, hence es lint disable, if data in localstorage dispatch to reducers to populate store state
   useEffect(() => {
-    console.log('data ready?:', dataReady)
-  })
+    console.log('checking localStorage')
+    localStorage.getItem(TWITTER_DATA_KEY) !== null &&(
+      handleLocalStorage()
+    )
+  }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
   //if both user and faves are populated, show faves list
   return (
@@ -42,4 +49,4 @@ function mapStateToProps({ favourites, user }) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, { handleLocalStorage })(App)

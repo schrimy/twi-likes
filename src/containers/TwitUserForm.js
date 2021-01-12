@@ -8,6 +8,7 @@ const TwitUserForm = (props) => {
     const [userName, setUserName] = useState('')
     const spinner = useRef(null)
 
+    //TODO: set up storing of data to LS when a search is successfull in the form
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
     in case there is an error therefore not showing an unrelated list*/
     const handleSubmit = (evt) => {
@@ -49,7 +50,7 @@ const TwitUserForm = (props) => {
                 </button>
             </form>
             <div className='d-flex justify-content-center'>
-                <div className='spinner-border' role='status' hidden={ false } ref={ spinner }>
+                <div className='spinner-border' role='status' hidden={ true } ref={ spinner }>
                     <span className='sr-only'>Loading...</span>
                 </div>
             </div>

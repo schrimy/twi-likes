@@ -13,3 +13,8 @@ export const handleUserInfo = (userName) => {
      })
  }
 }
+
+//TODO: separate data into needed slices and dispatch to relevant actions to be sent ot reducers
+export const handleLocalStorage = (lsData) => {
+    console.log('handle local storage data')
+}
