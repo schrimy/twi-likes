@@ -2,13 +2,13 @@ import React, { useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import { handleUserInfo } from '../actions/shared'
 import { clearFaves } from '../actions/favorites'
+import { TWITTER_DATA_KEY } from '../utils/constants'
 
 const TwitUserForm = (props) => {
     const { handleUserInfo, clearFaves, errorCallBack } = props
     const [userName, setUserName] = useState('')
     const spinner = useRef(null)
 
-    //TODO: set up storing of data to LS when a search is successfull in the form
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
     in case there is an error therefore not showing an unrelated list*/
     const handleSubmit = (evt) => {
@@ -18,9 +18,11 @@ const TwitUserForm = (props) => {
 
         //thunk action returns promise to get info, has it's own .then when successful to populate store state
         handleUserInfo(userName)
-        .then(() => {
+        .then((data) => {
             setUserName('')
             spinner.current.hidden = true
+            console.log('returned twit data:', data)
+            localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data))
         })
         .catch(err => {
             //error caught from thunk action fires callback to display alert in app.js

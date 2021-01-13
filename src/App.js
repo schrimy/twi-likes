@@ -12,12 +12,11 @@ function App(props) {
   const { dataReady, handleLocalStorage } = props
   const [userError, setUserError] = useState(false)
 
-  //TODO: fire off localStorage data when populated to action
   //useEffect to run on mount only, hence es lint disable, if data in localstorage dispatch to reducers to populate store state
   useEffect(() => {
     console.log('checking localStorage')
     localStorage.getItem(TWITTER_DATA_KEY) !== null &&(
-      handleLocalStorage()
+      handleLocalStorage(JSON.parse(localStorage.getItem(TWITTER_DATA_KEY)))
     )
   }, [])//eslint-disable-line react-hooks/exhaustive-deps
 

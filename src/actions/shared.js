@@ -10,11 +10,18 @@ export const handleUserInfo = (userName) => {
         if(likes.length !== 0) { dispatch(receiveFaves(likes)) }
         
         dispatch(receiveUser(user))
+        return({
+            likes,
+            user
+        })
      })
  }
 }
 
-//TODO: separate data into needed slices and dispatch to relevant actions to be sent ot reducers
+//separate data into needed slices and dispatch to relevant actions to be sent to reducers
 export const handleLocalStorage = (lsData) => {
-    console.log('handle local storage data')
+    return (dispatch) => {
+        dispatch(receiveFaves(lsData.likes))
+        dispatch(receiveUser(lsData.user))
+    }
 }
