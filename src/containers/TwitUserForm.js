@@ -16,12 +16,11 @@ const TwitUserForm = (props) => {
         clearFaves()
         spinner.current.hidden = false
 
-        //thunk action returns promise to get info, has it's own .then when successful to populate store state
+        //thunk action returns promise to get info, has it's own, then when successful to populate store state
         handleUserInfo(userName)
         .then((data) => {
             setUserName('')
             spinner.current.hidden = true
-            console.log('returned twit data:', data)
             localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data))
         })
         .catch(err => {
