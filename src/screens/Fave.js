@@ -7,9 +7,7 @@ const Fave = (props) => {
     const [dateText, setDateText] = useState('')
 
     useEffect(() => {
-        console.log('format date:', created_at)
         const parsedDate = Date.parse(created_at)
-        console.log('parsed date:', parsedDate)
         setDateText(new Date(parsedDate).toDateString())
     }, [created_at])
 
@@ -20,7 +18,7 @@ const Fave = (props) => {
         }
     }
 
-    //TODO: see about formatting date either from api end or here for created_at
+    //TODO: create grid with user info and tweet text so user profile pic takes up on column / aligns text: no UserInof component here
 
     return(
         <div className='border border-dark rounded mb-3 p-2'>
