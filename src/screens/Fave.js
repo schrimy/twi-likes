@@ -18,13 +18,11 @@ const Fave = (props) => {
         }
     }
 
-    //TODO: create grid with user info and tweet text so user profile pic takes up on column / aligns text: no UserInof component here
-
     return(
-        <div className='border border-dark rounded mb-3 p-2'>
+        <div className='container border border-dark rounded mb-3 p-2'>
             <UserInfo userData={ user } />
-            <p dangerouslySetInnerHTML={ createMarkup() }></p>
-            <span>{ dateText }</span>
+            <p className='pl-5' dangerouslySetInnerHTML={ createMarkup() }></p>
+            <span className='pl-5'>{ dateText }</span>
         </div>
     )
 }
