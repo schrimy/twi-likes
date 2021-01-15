@@ -50,7 +50,8 @@ app.get('/getTwits/:user', (req, res) => {
     //endpoint url and params here
     client.get('favorites/list', {
         count: 10,
-        screen_name: userName
+        screen_name: userName,
+        tweet_mode: 'extended'
     })
     .then(data => {
         res.send(data)
