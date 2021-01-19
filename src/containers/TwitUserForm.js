@@ -33,23 +33,26 @@ const TwitUserForm = (props) => {
 
     return(
         <div>
-            <form className='input-group mb-4' onSubmit={ handleSubmit }>
-                <input
-                    autoFocus={true}
-                    type='text'
-                    className='form-control'
-                    value={ userName }
-                    placeholder='Enter Twitter username'
-                    onChange={ (evt) => setUserName(evt.target.value) }
-                />
-                <button 
-                    type='submit'
-                    className='btn btn-secondary'
-                    disabled={ userName === '' }
-                >
-                    SUBMIT
-                </button>
-            </form>
+            <button className='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseForm' aria-expanded='false' aria-controls='collapseForm'>v</button>
+            <div className='collapse' id='collapseForm'>
+                <form className='input-group mb-4' onSubmit={ handleSubmit }>
+                    <input
+                        autoFocus={true}
+                        type='text'
+                        className='form-control'
+                        value={ userName }
+                        placeholder='Enter Twitter username'
+                        onChange={ (evt) => setUserName(evt.target.value) }
+                    />
+                    <button 
+                        type='submit'
+                        className='btn btn-secondary'
+                        disabled={ userName === '' }
+                    >
+                        SUBMIT
+                    </button>
+                </form>
+            </div>
             <div className='d-flex justify-content-center'>
                 <div className='spinner-border' role='status' hidden={ true } ref={ spinner }>
                     <span className='sr-only'>Loading...</span>

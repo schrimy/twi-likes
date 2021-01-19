@@ -12,6 +12,7 @@ const Fave = (props) => {
         setDateText(new Date(parsedDate).toDateString())
     }, [created_at])
 
+    //https://www.geeksforgeeks.org/javascript-replace-multiple-strings-with-multiple-other-strings/
     //helper to remove unwanted url's in text field, is sent an array of urls to add to regex which is used to know what to replace.
     const stringReplace = (arr) => {
 

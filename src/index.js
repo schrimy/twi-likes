@@ -6,8 +6,11 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import middleware from './middleware'
 import reducer from './reducers'
+import 'jquery/dist/jquery.js'
+import 'bootstrap/js/dist/util.js'
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap'
+import 'bootstrap/js/dist/alert.js'
+import 'bootstrap/js/dist/collapse.js'
 import './styles/app.scss'
 //import reportWebVitals from './reportWebVitals';
 
