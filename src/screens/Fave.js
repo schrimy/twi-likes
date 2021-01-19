@@ -12,14 +12,26 @@ const Fave = (props) => {
         setDateText(new Date(parsedDate).toDateString())
     }, [created_at])
 
+    //helper to remove unwanted url's in text field, is sent an array of urls to add to regex which is used to know what to replace.
+    const stringReplace = (arr) => {
+
+        const re = new RegExp(arr.map(item => (
+            item.url
+        )).join('|'), 'gi')
+
+        return full_text.replace(re, '')
+    }
+
     //close off the passing of dangerous html to populate the text of the rendered text
     const createMarkup = () => {
         return {
-            __html: full_text
+            __html: entities.media !== undefined
+                    ? stringReplace(entities.media)
+                    : full_text
         }
     }
 
-    //TODO: remove media url from text via regexand media -> url params
+    //TODO: remove media url from text via regex and media -> url params
 
     return(
         <div className='container border border-dark rounded mb-3 p-2'>
