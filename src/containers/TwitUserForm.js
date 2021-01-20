@@ -5,6 +5,7 @@ import { clearFaves } from '../actions/favorites'
 import { TWITTER_DATA_KEY } from '../utils/constants'
 
 import Alert from '../screens/Alert'
+import Icons from 'bootstrap-icons/bootstrap-icons.svg'
 
 const TwitUserForm = (props) => {
     const { handleUserInfo, clearFaves } = props
@@ -42,7 +43,17 @@ const TwitUserForm = (props) => {
 
     return(
         <div>
-            <button className='btn btn-primary' type='button' data-toggle='collapse' data-target='#collapseForm' aria-expanded='false' aria-controls='collapseForm'>v</button>
+            <button
+                className='btn btn-primary'
+                type='button'
+                data-toggle='collapse'
+                data-target='#collapseForm'
+                aria-expanded='false'
+                aria-controls='collapseForm'>
+                    <svg className="bi" width="20" height="20" fill="currentColor" role='img'>
+                        <use xlinkHref={`${Icons}#filter`} />
+                    </svg>
+            </button>
             <div className='collapse' id='collapseForm'>
                 <form className='input-group mb-4' onSubmit={ handleSubmit }>
                     <input
