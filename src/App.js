@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import TwitUserForm from './containers/TwitUserForm'
 import FaveList from './containers/FaveList'
-import Alert from './screens/Alert'
 import { TWITTER_DATA_KEY } from './utils/constants'
 import { handleLocalStorage } from './actions/shared'
 
@@ -12,7 +11,6 @@ import { handleLocalStorage } from './actions/shared'
 //displays the search form and if there are favourites returned from the mapState function then it displays the faves list too
 function App(props) {
   const { dataReady, handleLocalStorage } = props
-  const [userError, setUserError] = useState(false)
 
   //useEffect to run on mount only, hence es lint disable, if data in localstorage dispatch to reducers to populate store state
   useEffect(() => {
@@ -28,12 +26,7 @@ function App(props) {
       <header className="App-header">
         Twi likes
       </header>
-      <TwitUserForm errorCallBack={ setUserError }/>
-      {
-        userError &&(
-          <Alert cb={ setUserError } />
-        )
-      }
+      <TwitUserForm />
       {
         dataReady &&(
           <FaveList />

@@ -1,13 +1,20 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { handleUserInfo } from '../actions/shared'
 import { clearFaves } from '../actions/favorites'
 import { TWITTER_DATA_KEY } from '../utils/constants'
 
+import Alert from '../screens/Alert'
+
 const TwitUserForm = (props) => {
-    const { handleUserInfo, clearFaves, errorCallBack } = props
+    const { handleUserInfo, clearFaves } = props
     const [userName, setUserName] = useState('')
-    const spinner = useRef(null)
+    const [userError, setUserError] = useState(false)
+    const spinner = useRef()
+
+    useEffect(() => {
+        spinner.current.hidden = true
+    })
 
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
     in case there is an error therefore not showing an unrelated list*/
@@ -15,6 +22,7 @@ const TwitUserForm = (props) => {
         evt.preventDefault()
         clearFaves()
         spinner.current.hidden = false
+        setUserError(false)
 
         //thunk action returns promise to get info, has it's own, then when successful to populate store state
         handleUserInfo(userName)
@@ -22,12 +30,13 @@ const TwitUserForm = (props) => {
             setUserName('')
             spinner.current.hidden = true
             localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data))
+            setUserError(false)
         })
         .catch(err => {
-            //error caught from thunk action fires callback to display alert in app.js
+            //error caught from thunk action changes error state to show alert component
             console.log('error getting user data', err)
-            errorCallBack(true)
             spinner.current.hidden = true
+            setUserError(true)
         })
     }
 
@@ -54,10 +63,15 @@ const TwitUserForm = (props) => {
                 </form>
             </div>
             <div className='d-flex justify-content-center'>
-                <div className='spinner-border' role='status' hidden={ true } ref={ spinner }>
+                <div className='spinner-border' role='status' ref={ spinner }>
                     <span className='sr-only'>Loading...</span>
                 </div>
             </div>
+            {
+                userError &&(
+                    <Alert cb={ setUserError } />
+                )
+            }
         </div>
     )
 }
