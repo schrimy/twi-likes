@@ -8,6 +8,8 @@ import UserInfo from '../screens/UserInfo'
 const FaveList = (props) => {
     const { faveList, user } = props
 
+    //TODO: if favelist length = 0 then throw error or show no faves
+
     //show list of liked tweets and who they have been liked by
     return(
         <div className='container list-container mt-4'>

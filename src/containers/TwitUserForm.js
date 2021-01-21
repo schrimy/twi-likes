@@ -17,12 +17,14 @@ const TwitUserForm = (props) => {
 
     useEffect(() => {
         spinner.current.hidden = true
+    })
 
+    useEffect(() => {
         //jquery to targety btn click to toggle collapsed btn icon
         $('#collapseBtn').on('click', () => {
             setCollapsed(!collapsed)
         })
-    })
+    }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
     in case there is an error therefore not showing an unrelated list*/
@@ -49,41 +51,43 @@ const TwitUserForm = (props) => {
     }
 
     return(
-        <div className='d-flex flex-row container list-container'>
-            <button
-                id='collapseBtn'
-                className='btn btn-primary p-1'
-                type='button'
-                data-toggle='collapse'
-                data-target='#collapseForm'
-                aria-expanded='false'
-                aria-controls='collapseForm'>
-                    <svg className="bi" width="20" height="20" fill="currentColor" role='img'>
-                        {
-                            collapsed
-                                ? <use xlinkHref={ `${Icons}#chevron-compact-down` } />
-                                : <use xlinkHref={ `${Icons}#chevron-up` } />
-                        }
-                    </svg>
-            </button>
-            <div className='collapse flex-grow-1' id='collapseForm'>
-                <form className='input-group' onSubmit={ handleSubmit }>
-                    <input
-                        autoFocus={ true }
-                        type='text'
-                        className='form-control'
-                        value={ userName }
-                        placeholder='Enter Twitter username'
-                        onChange={ (evt) => setUserName(evt.target.value) }
-                    />
-                    <button 
-                        type='submit'
-                        className='btn btn-secondary'
-                        disabled={ userName === '' }
-                    >
-                        SUBMIT
-                    </button>
-                </form>
+        <div className='container list-container'>
+            <div className='d-flex flex-row mb-2'>
+                <button
+                    id='collapseBtn'
+                    className='btn btn-primary p-1'
+                    type='button'
+                    data-toggle='collapse'
+                    data-target='#collapseForm'
+                    aria-expanded='false'
+                    aria-controls='collapseForm'>
+                        <svg className="bi d-flex align-items-center" width="20" height="20" fill="currentColor" role='img'>
+                            {
+                                collapsed
+                                    ? <use xlinkHref={ `${Icons}#chevron-compact-down` } />
+                                    : <use xlinkHref={ `${Icons}#chevron-up` } />
+                            }
+                        </svg>
+                </button>
+                <div className='collapse flex-grow-1' id='collapseForm'>
+                    <form className='input-group' onSubmit={ handleSubmit }>
+                        <input
+                            autoFocus={ true }
+                            type='text'
+                            className='form-control'
+                            value={ userName }
+                            placeholder='Enter Twitter username'
+                            onChange={ (evt) => setUserName(evt.target.value) }
+                        />
+                        <button 
+                            type='submit'
+                            className='btn btn-secondary'
+                            disabled={ userName === '' }
+                        >
+                            SUBMIT
+                        </button>
+                    </form>
+                </div>
             </div>
             <div className='d-flex justify-content-center'>
                 <div className='spinner-border' role='status' ref={ spinner }>
