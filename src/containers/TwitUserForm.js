@@ -6,15 +6,22 @@ import { TWITTER_DATA_KEY } from '../utils/constants'
 
 import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
+import $ from 'jquery'
 
 const TwitUserForm = (props) => {
     const { handleUserInfo, clearFaves } = props
     const [userName, setUserName] = useState('')
     const [userError, setUserError] = useState(false)
+    const [collapsed, setCollapsed] = useState(true)
     const spinner = useRef()
 
     useEffect(() => {
         spinner.current.hidden = true
+
+        //jquery to targety btn click to toggle collapsed btn icon
+        $('#collapseBtn').on('click', () => {
+            setCollapsed(!collapsed)
+        })
     })
 
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
@@ -44,6 +51,7 @@ const TwitUserForm = (props) => {
     return(
         <div className='d-flex flex-row container list-container'>
             <button
+                id='collapseBtn'
                 className='btn btn-primary p-1'
                 type='button'
                 data-toggle='collapse'
@@ -51,7 +59,11 @@ const TwitUserForm = (props) => {
                 aria-expanded='false'
                 aria-controls='collapseForm'>
                     <svg className="bi" width="20" height="20" fill="currentColor" role='img'>
-                        <use xlinkHref={ `${Icons}#filter` } />
+                        {
+                            collapsed
+                                ? <use xlinkHref={ `${Icons}#chevron-compact-down` } />
+                                : <use xlinkHref={ `${Icons}#chevron-up` } />
+                        }
                     </svg>
             </button>
             <div className='collapse flex-grow-1' id='collapseForm'>
