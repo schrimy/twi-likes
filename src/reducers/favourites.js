@@ -7,7 +7,7 @@ const favourites = (state = {}, action) => {
                 ...action.faveTweets
             }
         case CLEAR_FAVE_TWEETS:
-            return {}
+            return null
         default:
             return state
     }

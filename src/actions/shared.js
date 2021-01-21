@@ -1,5 +1,5 @@
-import { receiveUser } from './user'
-import { receiveFaves } from './favorites'
+import { receiveUser, clearUser } from './user'
+import { receiveFaves, clearFaves } from './favorites'
 import { getTwitLikes, getTwitUser } from '../utils/helpers'
 
 //call helpers then the favourite and user receive actions
@@ -23,5 +23,13 @@ export const handleLocalStorage = (lsData) => {
     return (dispatch) => {
         dispatch(receiveFaves(lsData.likes))
         dispatch(receiveUser(lsData.user))
+    }
+}
+
+//shared thunk to clear both likes/faves list and user details when a new search is performed
+export const handleClearing = () => {
+    return (dispatch) => {
+        dispatch(clearFaves())
+        dispatch(clearUser())
     }
 }

@@ -37,9 +37,9 @@ function App(props) {
 }
 
 //grabs the store state of favourites and user and returns a boolean based on if both are populated
-function mapStateToProps({ favourites, user }) {
+function mapStateToProps({ user }) {
   return {
-    dataReady: Object.keys(favourites).length !== 0 && user !== null
+    dataReady: user !== null
   }
 }
 

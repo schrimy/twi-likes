@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { handleUserInfo } from '../actions/shared'
-import { clearFaves } from '../actions/favorites'
+import { handleUserInfo, handleClearing } from '../actions/shared'
 import { TWITTER_DATA_KEY } from '../utils/constants'
 
 import Alert from '../screens/Alert'
@@ -9,7 +8,7 @@ import Icons from 'bootstrap-icons/bootstrap-icons.svg'
 import $ from 'jquery'
 
 const TwitUserForm = (props) => {
-    const { handleUserInfo, clearFaves } = props
+    const { handleUserInfo, handleClearing } = props
     const [userName, setUserName] = useState('')
     const [userError, setUserError] = useState(false)
     const [collapsed, setCollapsed] = useState(true)
@@ -30,7 +29,7 @@ const TwitUserForm = (props) => {
     in case there is an error therefore not showing an unrelated list*/
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        clearFaves()
+        handleClearing()
         spinner.current.hidden = false
         setUserError(false)
 
@@ -103,4 +102,4 @@ const TwitUserForm = (props) => {
     )
 }
 
-export default connect(null, { handleUserInfo, clearFaves })(TwitUserForm)
+export default connect(null, { handleUserInfo, handleClearing })(TwitUserForm)
