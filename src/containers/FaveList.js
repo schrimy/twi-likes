@@ -10,7 +10,7 @@ const FaveList = (props) => {
 
     //show list of liked tweets and who they have been liked by
     return(
-        <div className='container list-container'>
+        <div className='container list-container mt-4'>
             <section className='mb-3'>
                 <p className='mb-2'>Tweets liked by:</p>
                 <UserInfo userData={ user } />

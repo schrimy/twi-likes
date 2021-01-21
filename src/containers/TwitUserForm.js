@@ -42,22 +42,22 @@ const TwitUserForm = (props) => {
     }
 
     return(
-        <div>
+        <div className='d-flex flex-row container list-container'>
             <button
-                className='btn btn-primary'
+                className='btn btn-primary p-1'
                 type='button'
                 data-toggle='collapse'
                 data-target='#collapseForm'
                 aria-expanded='false'
                 aria-controls='collapseForm'>
                     <svg className="bi" width="20" height="20" fill="currentColor" role='img'>
-                        <use xlinkHref={`${Icons}#filter`} />
+                        <use xlinkHref={ `${Icons}#filter` } />
                     </svg>
             </button>
-            <div className='collapse' id='collapseForm'>
-                <form className='input-group mb-4' onSubmit={ handleSubmit }>
+            <div className='collapse flex-grow-1' id='collapseForm'>
+                <form className='input-group' onSubmit={ handleSubmit }>
                     <input
-                        autoFocus={true}
+                        autoFocus={ true }
                         type='text'
                         className='form-control'
                         value={ userName }
