@@ -5,7 +5,6 @@ import { TWITTER_DATA_KEY } from '../utils/constants'
 
 import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
-import $ from 'jquery'
 
 const TwitUserForm = (props) => {
     const { handleUserInfo, handleClearing } = props
@@ -17,13 +16,6 @@ const TwitUserForm = (props) => {
     useEffect(() => {
         spinner.current.hidden = true
     })
-
-    useEffect(() => {
-        //jquery to targety btn click to toggle collapsed btn icon
-        $('#collapseBtn').on('click', () => {
-            setCollapsed(!collapsed)
-        })
-    }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
     in case there is an error therefore not showing an unrelated list*/
@@ -59,7 +51,8 @@ const TwitUserForm = (props) => {
                     data-toggle='collapse'
                     data-target='#collapseForm'
                     aria-expanded='false'
-                    aria-controls='collapseForm'>
+                    aria-controls='collapseForm'
+                    onClick={ () => setCollapsed(!collapsed) }>
                         <svg className="bi d-flex align-items-center" width="20" height="20" fill="currentColor" role='img'>
                             {
                                 collapsed
