@@ -2,6 +2,21 @@
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 
+.clickable {
+    cursor: pointer;
+}
+
+//TODO: try to clear box shadow on focus active state
+.btn {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.btn-primary:active:focus {
+    box-shadow: none;
+}
+
 @include media-breakpoint-up(lg) {
     .list-container {
         width: 60%

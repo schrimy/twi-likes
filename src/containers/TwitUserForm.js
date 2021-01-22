@@ -10,7 +10,7 @@ const TwitUserForm = (props) => {
     const { handleUserInfo, handleClearing, userClicked } = props
     const [userName, setUserName] = useState('')
     const [userError, setUserError] = useState(false)
-    const [collapsed, setCollapsed] = useState(true)
+    const [collapsed, setCollapsed] = useState(false)
     const spinner = useRef()
     const nameInput = useRef()
 
@@ -73,7 +73,7 @@ const TwitUserForm = (props) => {
                             }
                         </svg>
                 </button>
-                <div className='collapse flex-grow-1' id='collapseForm'>
+                <div className='collapse show flex-grow-1' id='collapseForm'>
                     <form className='input-group' onSubmit={ (evt) => handleSubmit(evt, userName) }>
                         <input
                             ref={ nameInput }
