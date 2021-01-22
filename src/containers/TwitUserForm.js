@@ -7,26 +7,38 @@ import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
 
 const TwitUserForm = (props) => {
-    const { handleUserInfo, handleClearing } = props
+    const { handleUserInfo, handleClearing, userClicked } = props
     const [userName, setUserName] = useState('')
     const [userError, setUserError] = useState(false)
     const [collapsed, setCollapsed] = useState(true)
     const spinner = useRef()
+    const nameInput = useRef()
 
     useEffect(() => {
         spinner.current.hidden = true
     })
 
+    /**
+     * if a userInfo component detects a click it changes the store state to reflect this and this component is subscribed to that change,
+     * therefore when this change occurs send the handle submit function the name clicked to search for likes in that user name.
+     **/
+    useEffect(() => {
+        if(userClicked !== null) {
+            console.log('use effect for user click')
+            handleSubmit(new Event('click'), userClicked)
+        }
+    }, [userClicked])//eslint-disable-line react-hooks/exhaustive-deps
+
     /*when submitting a user name search dispatch clearFaves to clear the favesList,
     in case there is an error therefore not showing an unrelated list*/
-    const handleSubmit = (evt) => {
+    const handleSubmit = (evt, searchName) => {
         evt.preventDefault()
         handleClearing()
         spinner.current.hidden = false
         setUserError(false)
 
         //thunk action returns promise to get info, has it's own, then when successful to populate store state
-        handleUserInfo(userName)
+        handleUserInfo(searchName)
         .then((data) => {
             setUserName('')
             spinner.current.hidden = true
@@ -62,8 +74,9 @@ const TwitUserForm = (props) => {
                         </svg>
                 </button>
                 <div className='collapse flex-grow-1' id='collapseForm'>
-                    <form className='input-group' onSubmit={ handleSubmit }>
+                    <form className='input-group' onSubmit={ (evt) => handleSubmit(evt, userName) }>
                         <input
+                            ref={ nameInput }
                             autoFocus={ true }
                             type='text'
                             className='form-control'
@@ -95,4 +108,13 @@ const TwitUserForm = (props) => {
     )
 }
 
-export default connect(null, { handleUserInfo, handleClearing })(TwitUserForm)
+
+//TODO: only return this if not null? check past react Udacity courses to do this here?
+function mapStateToProps({ userClicked }) {
+    console.log('twit form clicked user name:', userClicked)
+    return {
+        userClicked
+    }
+}
+
+export default connect(mapStateToProps, { handleUserInfo, handleClearing })(TwitUserForm)
