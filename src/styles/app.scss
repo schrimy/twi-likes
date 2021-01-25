@@ -17,6 +17,24 @@
     box-shadow: none;
 }
 
+//scrollbar params for firefox and the rest (webkit)
+.fave-list {
+    overflow-y: scroll;
+    height: 75vh;
+    padding-right: 2px;
+    scrollbar-color: #0877f5;
+    scrollbar-width: 6px;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #0877f5;
+        border-radius: 2em;
+    }
+}
+
 @include media-breakpoint-up(lg) {
     .list-container {
         width: 60%

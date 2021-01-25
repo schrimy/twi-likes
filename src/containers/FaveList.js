@@ -15,13 +15,15 @@ const FaveList = (props) => {
                 <p className='mb-2'>Tweets liked by:</p>
                 <UserInfo userData={ user } />
             </section>
-            {
-                faveList !== null
-                    ? faveList.map(fave => (
-                        <Fave key={ fave.id } data={ fave } />
-                     ))
-                    : <p>They have no likes!!</p>
-            }
+            <div className='fave-list'>
+                {
+                    faveList !== null
+                        ? faveList.map(fave => (
+                            <Fave key={ fave.id } data={ fave } />
+                        ))
+                        : <p>They have no likes!!</p>
+                }
+            </div>
         </div>
     )
 }
