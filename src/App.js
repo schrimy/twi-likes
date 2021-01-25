@@ -22,16 +22,19 @@ function App(props) {
 
   //if both user and faves are populated, show faves list
   return (
-    <div className="App container">
-      <header className="App-header">
+    <div className="App">
+      <header className="App-header pt-2 pb-2">
         Twi likes
       </header>
-      <TwitUserForm />
-      {
-        dataReady &&(
-          <FaveList />
-        )
-      }
+      <main className='container'>
+        <TwitUserForm />
+        {
+          dataReady &&(
+            <FaveList />
+          )
+        }
+      </main>
+      <footer className='pt-2 pb-2'>A footer</footer>
     </div>
   )
 }
