@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/js/dist/alert.js'
 import 'bootstrap/js/dist/collapse.js'
 import './styles/app.scss'
+import '@animxyz/core'
 //import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer, middleware)

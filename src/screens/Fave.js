@@ -7,6 +7,7 @@ const Fave = (props) => {
 
     const [dateText, setDateText] = useState('')
 
+    //parse the date text into more readable format only once when the date string is changed i.e. first brough in
     useEffect(() => {
         const parsedDate = Date.parse(created_at)
         setDateText(new Date(parsedDate).toDateString())
@@ -35,13 +36,13 @@ const Fave = (props) => {
     //TODO: remove media url from text via regex and media -> url params
 
     return(
-        <div className='container border border-dark rounded p-2 fave'>
+        <div className='container border border-dark rounded p-2 fave xyz-in'  xyz='fade down stagger-3'>
             <UserInfo userData={ user } />
             <p className='pl-5' dangerouslySetInnerHTML={ createMarkup() }></p>
             {
                 entities.media !== undefined &&(
                     entities.media.map(image => (
-                        <img className='w-100 rounded' src={ image.media_url } alt='tweet embeded media' key={ image } />
+                        <img className='w-100 rounded xyz-nested' xyz='fade small' src={ image.media_url } alt='tweet embeded media' key={ image } />
                     ))
                 )
             }

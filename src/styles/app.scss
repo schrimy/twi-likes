@@ -26,6 +26,7 @@ header {
     box-shadow: none;
 }
 
+//TODO: check scrollbar is changed in firefox
 //scrollbar params for firefox and the rest (webkit)
 .fave-list {
     overflow-y: scroll;
@@ -44,8 +45,20 @@ header {
     }
 }
 
+//TODO: look at using animXYZ
 .fave {
     margin-bottom: 1rem;
+    /*animation: show 0.5s ease-in;
+
+    @keyframes show {
+        0% {
+            transform: translateY(-100%)
+        }
+
+        100% {
+            transform: translateY(0px)
+        }
+    }*/
 
     &:last-child {
         margin-bottom: 0;
