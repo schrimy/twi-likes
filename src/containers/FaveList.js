@@ -2,20 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Fave from '../screens/Fave'
-import UserInfo from '../screens/UserInfo'
 
 //displays a list of the returned favourite tweets, placing each in an individual fave component
 const FaveList = (props) => {
-    const { faveList, user } = props
+    const { faveList } = props
+
+    //TODO: see if i have been doing column instead of row and should be other way round, reference older projects
 
     //show list of liked tweets and who they have been liked by
     return(
-        <div className='container list-container pt-4 pb-3'>
-            <section className='mb-3'>
-                <p className='mb-2'>Tweets liked by:</p>
-                <UserInfo userData={ user } />
-            </section>
-            <div className='fave-list'>
+        <div className='pr-0 d-flex flex-column'>
+            <div className='container pt-3 pb-3 fave-list list-container'>
                 {
                     faveList !== null
                         ? faveList.map(fave => (
@@ -29,9 +26,8 @@ const FaveList = (props) => {
 }
 
 //grabs the favourites from store state and returns an array verison
-function mapStateToProps({ favourites, user }) {
+function mapStateToProps({ favourites }) {
     return {
-        user: user.data,
         faveList: favourites !== null 
             ? Object.keys(favourites).map(fave => (
                 favourites[fave]

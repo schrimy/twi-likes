@@ -12,12 +12,12 @@ const UserInfo = (props) => {
     }
 
     return(
-        <div className='container mb-3'>
-            <div className='row'>
-                <div className='col-auto pl-0 clickable' onClick={ handleClick }>
-                    <img src={ profile_image_url } className='img-fluid rounded-circle' alt='twitter user profile' />
+        <div className='list-container pb-2'>
+            <div className='container row'>
+                <div className='col-auto clickable p-0' onClick={ handleClick }>
+                    <img src={ profile_image_url } className='img-fluid rounded-circle mr-2' alt='twitter user profile' />
                 </div>
-                <div className='col pl-1'>
+                <div className='col-auto'>
                     <strong className='row'>{ name }</strong>
                     <span className='row clickable' onClick={ handleClick }>@{ screen_name || username }</span>
                 </div>

@@ -2,13 +2,36 @@
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 
-body {
+body,
+html {
+    height: 100%;
     background: #fff;
 }
 
 footer,
 header {
     background: #0a0a0a5d;
+}
+//TODO: check scrollbar is changed in firefox
+//scrollbar params for firefox and the rest (webkit)
+main {
+    scrollbar-color: #0877f5;
+    scrollbar-width: 4px;
+    scrollbar-track-color: #8d76f5;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        background: #8d76f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #0877f5;
+        border-radius: 2em;
+    }
+}
+
+#root {
+    height: 100%;
 }
 
 .clickable {
@@ -26,39 +49,9 @@ header {
     box-shadow: none;
 }
 
-//TODO: check scrollbar is changed in firefox
-//scrollbar params for firefox and the rest (webkit)
-.fave-list {
-    overflow-y: scroll;
-    max-height: 75vh;
-    padding-right: 2px;
-    scrollbar-color: #0877f5;
-    scrollbar-width: 6px;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #0877f5;
-        border-radius: 2em;
-    }
-}
-
 //TODO: look at using animXYZ
 .fave {
     margin-bottom: 1rem;
-    /*animation: show 0.5s ease-in;
-
-    @keyframes show {
-        0% {
-            transform: translateY(-100%)
-        }
-
-        100% {
-            transform: translateY(0px)
-        }
-    }*/
 
     &:last-child {
         margin-bottom: 0;
@@ -70,7 +63,7 @@ header {
 }
 
 @include media-breakpoint-up(lg) {
-    .list-container {
+    .App {
         width: 60%
     }
 }

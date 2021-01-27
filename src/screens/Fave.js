@@ -36,7 +36,7 @@ const Fave = (props) => {
     //TODO: remove media url from text via regex and media -> url params
 
     return(
-        <div className='container border border-dark rounded p-2 fave xyz-in'  xyz='fade down stagger-3'>
+        <div className='border border-dark rounded p-2 fave xyz-in'  xyz='fade down stagger-3'>
             <UserInfo userData={ user } />
             <p className='pl-5' dangerouslySetInnerHTML={ createMarkup() }></p>
             {
