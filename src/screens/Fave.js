@@ -36,17 +36,19 @@ const Fave = (props) => {
     //TODO: remove media url from text via regex and media -> url params
 
     return(
-        <div className='border border-dark rounded p-2 fave xyz-in'  xyz='fade down stagger-3'>
+        <div className='border border-dark rounded p-2 fave xyz-in' xyz='fade down stagger-3'>
             <UserInfo userData={ user } />
-            <p className='pl-5' dangerouslySetInnerHTML={ createMarkup() }></p>
+            <p className='pl-5 pr-5 ml-2' dangerouslySetInnerHTML={ createMarkup() }></p>
             {
                 entities.media !== undefined &&(
                     entities.media.map(image => (
-                        <img className='w-100 rounded xyz-nested' xyz='fade small' src={ image.media_url } alt='tweet embeded media' key={ image } />
+                        <div className='w-100 pl-5 pr-5 ml-2'>
+                            <img className='w-100 rounded xyz-nested' xyz='fade small' src={ image.media_url } alt='tweet embeded media' key={ image } />
+                        </div>
                     ))
                 )
             }
-            <span className='pl-5'>{ dateText }</span>
+            <span className='pl-5 ml-2'>{ dateText }</span>
         </div>
     )
 }

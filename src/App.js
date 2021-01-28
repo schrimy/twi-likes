@@ -21,7 +21,7 @@ function App(props) {
     )
   }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
-  //TODO: change first dive to main tag
+  //TODO: change first div to main tag
   //if user state is populated, show faves list
   return (
     <Fragment>
