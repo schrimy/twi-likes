@@ -2,6 +2,8 @@
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 
+$sb-width: 0.4rem;
+
 body,
 html {
     height: 100%;
@@ -16,11 +18,11 @@ header {
 //scrollbar params for firefox and the rest (webkit)
 main {
     scrollbar-color: #0877f5;
-    scrollbar-width: 4px;
+    scrollbar-width: $sb-width;
     scrollbar-track-color: #8d76f5;
 
     &::-webkit-scrollbar {
-        width: 4px;
+        width: $sb-width;
         background: #8d76f5;
     }
 
@@ -59,7 +61,7 @@ main {
 }
 
 .list-container {
-    background: #8d76f5;
+    background-color: #8d76f5;
 }
 
 @include media-breakpoint-up(lg) {

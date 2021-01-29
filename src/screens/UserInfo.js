@@ -12,14 +12,14 @@ const UserInfo = (props) => {
     }
 
     return(
-        <div className='list-container pb-2'>
+        <div className='pb-2'>
             <div className='container row m-0 p-0'>
                 <div className='col-auto clickable p-0' onClick={ handleClick }>
                     <img src={ profile_image_url } className='img-fluid rounded-circle mr-2' alt='twitter user profile' />
                 </div>
                 <div className='col p-0'>
                     <strong className='row m-0'>{ name }</strong>
-                    <span className='row clickable' onClick={ handleClick }>@{ screen_name || username }</span>
+                    <span className='row clickable m-0' onClick={ handleClick }>@{ screen_name || username }</span>
                 </div>
             </div>
         </div>

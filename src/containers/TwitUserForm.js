@@ -55,7 +55,7 @@ const TwitUserForm = (props) => {
 
     return(
         <div>
-            <div className='container list-container d-flex flex-row pt-3'>
+            <div className='container d-flex flex-row pt-3'>
                 <button
                     id='collapseBtn'
                     className='btn btn-primary p-1'
@@ -94,7 +94,7 @@ const TwitUserForm = (props) => {
                     </form>
                 </div>
             </div>
-            <div className='list-container d-flex justify-content-center'>
+            <div className='d-flex justify-content-center'>
                 <div className='spinner-border' role='status' ref={ spinner }>
                     <span className='sr-only'>Loading...</span>
                 </div>

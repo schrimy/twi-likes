@@ -7,8 +7,6 @@ import Fave from '../screens/Fave'
 const FaveList = (props) => {
     const { faveList } = props
 
-    //TODO: see if i have been doing column instead of row and should be other way round, reference older projects
-
     //show list of liked tweets and who they have been liked by
     return(
         <div className='pr-0 d-flex flex-column'>
