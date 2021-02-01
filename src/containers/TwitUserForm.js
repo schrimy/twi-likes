@@ -55,23 +55,24 @@ const TwitUserForm = (props) => {
 
     return(
         <div>
-            <div className='container d-flex flex-row pt-3'>
+            <div className='container d-flex flex-column pt-3'>
                 <button
                     id='collapseBtn'
-                    className='btn btn-primary p-1'
+                    className='btn btn-primary p-1 d-flex justify-content-center align-items-center'
                     type='button'
                     data-toggle='collapse'
                     data-target='#collapseForm'
                     aria-expanded='false'
                     aria-controls='collapseForm'
                     onClick={ () => setCollapsed(!collapsed) }>
-                        <svg className="bi d-flex align-items-center" width="20" height="20" fill="currentColor" role='img'>
+                        <svg className="bi d-flex" width="20" height="10" fill="currentColor" role='img'>
                             {
                                 collapsed
-                                    ? <use xlinkHref={ `${Icons}#chevron-compact-down` } />
+                                    ? <use xlinkHref={ `${Icons}#chevron-down` } />
                                     : <use xlinkHref={ `${Icons}#chevron-up` } />
                             }
                         </svg>
+                        <span className='text-uppercase small'>Search</span>
                 </button>
                 <div className='collapse show flex-grow-1' id='collapseForm'>
                     <form className='input-group' onSubmit={ (evt) => handleSubmit(evt, userName) }>
