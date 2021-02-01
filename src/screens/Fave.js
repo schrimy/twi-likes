@@ -42,8 +42,8 @@ const Fave = (props) => {
             {
                 entities.media !== undefined &&(
                     entities.media.map(image => (
-                        <div className='w-100 pl-5 pr-5 ml-2'>
-                            <img className='w-100 rounded xyz-nested' xyz='fade small' src={ image.media_url } alt='tweet embeded media' key={ image } />
+                        <div className='w-100 pl-5 pr-5 ml-2' key={ image.media_url }>
+                            <img className='w-100 rounded xyz-nested' xyz='fade small' src={ image.media_url } alt='tweet embeded media' />
                         </div>
                     ))
                 )

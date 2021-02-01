@@ -6,6 +6,8 @@ import { TWITTER_DATA_KEY } from '../utils/constants'
 import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
 
+//TODO: either via local-storage or store state, check storage pref to allow or block saving search name to local-storage
+
 const TwitUserForm = (props) => {
     const { handleUserInfo, handleClearing, userClicked } = props
     const [userName, setUserName] = useState('')
