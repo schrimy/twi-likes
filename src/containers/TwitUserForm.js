@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { handleUserInfo, handleClearing } from '../actions/shared'
-import { TWITTER_DATA_KEY } from '../utils/constants'
+import { TWITTER_DATA_KEY, STORAGE_PREFS } from '../utils/constants'
 
 import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
@@ -44,7 +44,8 @@ const TwitUserForm = (props) => {
         .then((data) => {
             setUserName('')
             spinner.current.hidden = true
-            localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data))
+            //checks to see if prefs have been set to false for storage, if so them don't store search data in local storage.
+            JSON.parse(localStorage.getItem(STORAGE_PREFS)) !== false &&(localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data)))
             setUserError(false)
         })
         .catch(err => {

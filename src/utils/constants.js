@@ -10,6 +10,6 @@ export const CLEAR_USER = 'CLEAR_USER'
 //user clicked constants
 export const USER_CLICKED = 'USER_CLICKED'
 
-//TODO: constant for pref choice local-storage key
 //localstorage
 export const TWITTER_DATA_KEY = 'TWITTER_DATA_KEY'
+export const STORAGE_PREFS = 'STORAGE_PREFS'
