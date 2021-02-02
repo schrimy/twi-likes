@@ -38,17 +38,17 @@ const Fave = (props) => {
     return(
         <div className='border border-dark rounded p-2 fave xyz-in' xyz='fade down stagger-3'>
             <UserInfo userData={ user } />
-            <p className='pl-5 pr-5 ml-2' dangerouslySetInnerHTML={ createMarkup() }></p>
+            <p className='pl-md-5 pr-md-5 ml-2' dangerouslySetInnerHTML={ createMarkup() }></p>
             {
                 entities.media !== undefined &&(
                     entities.media.map(image => (
-                        <div className='w-100 pl-5 pr-5 ml-2' key={ image.media_url }>
+                        <div className='w-100 pl-md-5 pr-md-5 pr-3 ml-2' key={ image.media_url }>
                             <img className='w-100 rounded xyz-nested' xyz='fade small' src={ image.media_url } alt='tweet embeded media' />
                         </div>
                     ))
                 )
             }
-            <span className='pl-5 ml-2'>{ dateText }</span>
+            <span className='pl-md-5 ml-2'>{ dateText }</span>
         </div>
     )
 }
