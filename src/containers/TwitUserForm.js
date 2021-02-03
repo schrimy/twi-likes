@@ -57,8 +57,8 @@ const TwitUserForm = (props) => {
     }
 
     return(
-        <div>
-            <div className='container d-flex flex-column pt-3'>
+        <div className='dark-top'>
+            <div className='container d-flex flex-column pt-4'>
                 <button
                     id='collapseBtn'
                     className='btn btn-primary p-1 d-flex justify-content-center align-items-center'

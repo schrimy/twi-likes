@@ -10,7 +10,7 @@ const FaveList = (props) => {
     //show list of liked tweets and who they have been liked by
     return(
         <div className='pr-0 d-flex flex-column'>
-            <div className='container pt-3 pb-3 fave-list list-container'>
+            <div className='container pt-3 pb-3 fave-list'>
                 {
                     faveList !== null
                         ? faveList.map(fave => (

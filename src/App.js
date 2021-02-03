@@ -24,12 +24,11 @@ function App(props) {
   //if user state is populated, show faves list
   return (
     <Fragment>
-      <header className="App-header p-2">Twi likes </header>
-      <div className="container list-container App d-flex flex-column vh-100 p-0">
+      <div className="container list-container App d-flex flex-column vh-100 pl-0 pr-0 pb-5">
         <TwitUserForm />
         {
           user !== undefined && (
-            <div className='container d-flex flex-column shadow-sm mb-1 rounded-lg'>
+            <div className='dark-top container d-flex flex-column mb-1 rounded-bottom'>
               <span className='pt-3 pb-2'>Tweets liked by:</span>
               <UserInfo userData={ user } />
             </div>
@@ -48,7 +47,6 @@ function App(props) {
           <Storage />
         )
       }
-      <footer className='p-2'>A footer</footer>
     </Fragment>
   )
 }
