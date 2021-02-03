@@ -29,7 +29,7 @@ function App(props) {
         {
           user !== undefined && (
             <div className='dark-top container d-flex flex-column mb-1 rounded-bottom'>
-              <span className='pt-3 pb-2'>Tweets liked by:</span>
+              <span className='pt-1 pb-2'>Tweets liked by:</span>
               <UserInfo userData={ user } />
             </div>
           )

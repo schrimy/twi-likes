@@ -98,14 +98,16 @@ const TwitUserForm = (props) => {
                     </form>
                 </div>
             </div>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center pt-3 pb-3'>
                 <div className='spinner-border' role='status' ref={ spinner }>
                     <span className='sr-only'>Loading...</span>
                 </div>
             </div>
             {
                 userError &&(
-                    <Alert cb={ setUserError } />
+                    <div className='container pt-2'>
+                        <Alert cb={ setUserError } />
+                    </div>
                 )
             }
         </div>
