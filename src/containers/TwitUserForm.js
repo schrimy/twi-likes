@@ -6,15 +6,13 @@ import { TWITTER_DATA_KEY, STORAGE_PREFS } from '../utils/constants'
 import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
 
-//TODO: either via local-storage or store state, check storage pref to allow or block saving search name to local-storage
-
 const TwitUserForm = (props) => {
     const { handleUserInfo, handleClearing, userClicked } = props
     const [userName, setUserName] = useState('')
     const [userError, setUserError] = useState(false)
     const [collapsed, setCollapsed] = useState(false)
     const spinner = useRef()
-    const nameInput = useRef()
+    const startText = useRef()
 
     useEffect(() => {
         spinner.current.hidden = true
@@ -37,6 +35,7 @@ const TwitUserForm = (props) => {
         evt.preventDefault()
         handleClearing()
         spinner.current.hidden = false
+        startText.current.hidden = true
         setUserError(false)
 
         //thunk action returns promise to get info, has it's own, then when successful to populate store state
@@ -80,7 +79,6 @@ const TwitUserForm = (props) => {
                 <div className='collapse show flex-grow-1' id='collapseForm'>
                     <form className='input-group' onSubmit={ (evt) => handleSubmit(evt, userName) }>
                         <input
-                            ref={ nameInput }
                             autoFocus={ true }
                             type='text'
                             className='form-control'
@@ -98,8 +96,11 @@ const TwitUserForm = (props) => {
                     </form>
                 </div>
             </div>
-            <div className='d-flex justify-content-center pt-3 pb-3'>
-                <div className='spinner-border' role='status' ref={ spinner }>
+            <div className='d-flex flex-column pt-3 pb-3'>
+                <p className='w-100 text-center text-uppercase font-weight-bold h4' ref={ startText } hidden={ localStorage.getItem(TWITTER_DATA_KEY) !== null }>
+                  Enter a twitter username above to search for their liked tweets.
+                </p>
+                <div className='spinner-border align-self-center' role='status' ref={ spinner }>
                     <span className='sr-only'>Loading...</span>
                 </div>
             </div>

@@ -23,7 +23,7 @@ const Storage = () => {
     }
 
     return(
-        <div className='fixed-bottom bg-light pb-3' xyz='fade down' ref={ container }>
+        <div className='fixed-bottom bg-light pb-3 text-dark' xyz='fade down' ref={ container }>
             <div className='d-flex flex-column align-items-center'>
                 <h5 className='pt-2'>Storage option, please choose</h5>
                 <hr className='border border-dark w-25 mt-0' />
