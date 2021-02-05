@@ -57,7 +57,7 @@ const TwitUserForm = (props) => {
 
     return(
         <div className='dark-top'>
-            <div className='container d-flex flex-column pt-4'>
+            <div className='container d-flex flex-column pt-3 pb-3'>
                 <button
                     id='collapseBtn'
                     className='btn btn-primary p-1 d-flex justify-content-center align-items-center'
@@ -96,7 +96,7 @@ const TwitUserForm = (props) => {
                     </form>
                 </div>
             </div>
-            <div className='d-flex flex-column pt-3 pb-3'>
+            <div className='d-flex flex-column'>
                 <p className='w-100 text-center text-uppercase font-weight-bold h4' ref={ startText } hidden={ localStorage.getItem(TWITTER_DATA_KEY) !== null }>
                   Enter a twitter username above to search for their liked tweets.
                 </p>

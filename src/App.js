@@ -24,7 +24,7 @@ function App(props) {
   //if user state is populated, show faves list
   return (
     <Fragment>
-      <div className="container list-container App d-flex flex-column vh-100 pl-0 pr-0 pb-5">
+      <div className="container list-container App d-flex flex-column vh-100 pl-0 pr-0 pb-lg-5 pb-3">
         <TwitUserForm />
         {
           user !== undefined && (
