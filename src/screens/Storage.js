@@ -26,13 +26,12 @@ const Storage = () => {
         <div className='fixed-bottom bg-light pb-3 text-dark' xyz='fade down' ref={ container }>
             <div className='d-flex flex-column align-items-center'>
                 <h5 className='pt-2'>Storage option, please choose</h5>
-                <hr className='border border-dark w-25 mt-0' />
-                <div className='custom-control custom-switch mb-3'>
+                <hr className='border border-dark w-25 m-0' />
+                <div className='custom-control custom-switch mt-2'>
                     <input type='checkbox' className='custom-control-input' id='customSwitch1' ref={ pref } defaultChecked />
-                    <label className='custom-control-label' htmlFor='customSwitch1'>
-                        This option saves your last search, on your computer, for next time. If turned off the search will be lost.
-                    </label>
+                    <label className='custom-control-label' htmlFor='customSwitch1' />
                 </div>
+                <p className='text-center'>This option saves your last search, on your computer, for next time. If turned off the search will be lost.</p>
                 <button className='btn btn-primary' onClick={ handleClick }>
                     Save
                 </button>
