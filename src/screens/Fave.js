@@ -33,8 +33,7 @@ const Fave = (props) => {
         }
     }
 
-    //TODO: remove media url from text via regex and media -> url params
-
+    //TODO: remove media url from text via regex and media -> url params / click through links for other urls (check data coming in to match up)
     return(
         <div className='border border-light rounded p-2 fave xyz-in' xyz='fade down stagger-3'>
             <UserInfo userData={ user } />

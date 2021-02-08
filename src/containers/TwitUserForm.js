@@ -117,8 +117,6 @@ const TwitUserForm = (props) => {
     )
 }
 
-
-//TODO: only return this if not null? check past react Udacity courses to do this here?
 function mapStateToProps({ userClicked }) {
     console.log('twit form clicked user name:', userClicked)
     return {
