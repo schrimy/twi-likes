@@ -19,12 +19,11 @@ header {
     height: 2.5em;
     background: #0a0a0a5d;
 }
-//TODO: check scrollbar is changed in firefox
+
 //scrollbar params for firefox and the rest (webkit)
-main {
-    scrollbar-color: #0877f5;
-    scrollbar-width: $sb-width;
-    scrollbar-track-color: #00000066;
+#tweet-content {
+    scrollbar-color: #0877f5 #00000066;
+    scrollbar-width: thin;
 
     &::-webkit-scrollbar {
         width: $sb-width;

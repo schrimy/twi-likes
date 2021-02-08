@@ -20,11 +20,10 @@ function App(props) {
     )
   }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
-  //TODO: change first div to main tag
   //if user state is populated, show faves list
   return (
     <Fragment>
-      <div className="container list-container App d-flex flex-column vh-100 pl-0 pr-0 pb-lg-5 pb-3">
+      <main className="container list-container App d-flex flex-column vh-100 pl-0 pr-0 pb-lg-5 pb-3">
         <TwitUserForm />
         {
           user !== undefined && (
@@ -34,14 +33,14 @@ function App(props) {
             </div>
           )
         }
-        <main className='d-flex flex-wrap flex-fill overflow-auto'>
+        <section id='tweet-content' className='d-flex flex-wrap flex-fill overflow-auto'>
           {
             user !== undefined &&(
               <FaveList />
             )
           }
-        </main>
-      </div>
+        </section>
+      </main>
       {
         localStorage.getItem(STORAGE_PREFS) === null &&(
           <Storage />
