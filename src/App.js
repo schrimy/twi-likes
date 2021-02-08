@@ -51,15 +51,10 @@ function App(props) {
   )
 }
 
-//TODO: clean up the if statement
 //grabs the store state of favourites and user and returns a boolean based on if both are populated
 function mapStateToProps({ user }) {
-  if(user !== null) {
-    return {
-      user: user.data
-    }
-  } else {
-    return {}
+  return {
+    user: user !== null ? user.data : undefined
   }
 }
 

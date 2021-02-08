@@ -100,8 +100,10 @@ const TwitUserForm = (props) => {
                 <p className='w-100 text-center text-uppercase font-weight-bold h4' ref={ startText } hidden={ localStorage.getItem(TWITTER_DATA_KEY) !== null }>
                   Enter a twitter username above to search for their liked tweets.
                 </p>
-                <div className='spinner-border align-self-center' role='status' ref={ spinner }>
-                    <span className='sr-only'>Loading...</span>
+                <div className='pb-2 align-self-center' ref={ spinner }>
+                    <div className='spinner-border align-self-center' role='status'>
+                        <span className='sr-only'>Loading...</span>
+                    </div>
                 </div>
             </div>
             {
