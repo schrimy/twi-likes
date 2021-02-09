@@ -24,16 +24,40 @@ const Fave = (props) => {
         return full_text.replace(re, '')
     }
 
+    //https://stackoverflow.com/questions/4870769/removing-backslashes-from-strings-in-javascript
+    //regex to find url links matching from data in tweet text and turns them into usable links
+    const makeLink = (bodyString) => {
+        const re = new RegExp(entities.urls.map(link => (
+            link.url
+        )).join('|'), 'gi')
+
+        return bodyString.replace(re, `<a href=${re.source.replace(/\\\//g, '/')} target="_blank">${re.source.replace(/\\\//g, '/')}</a>`)
+    }
+
+    //TODO: check to see if it works when tweet has multiple links in body
+    //function to return string obj, that looks for and replaces media urls and then turns other urls into links
+    const checkForUrls = () => {
+        let contentString = ''
+
+        //check tweet text for image links and replace them with an image + remove from text
+        entities.media !== undefined
+            ? contentString = stringReplace(entities.media)
+            : contentString = full_text
+
+        //then check text for other links in text and replace them with a html formatted link to click through for user
+        entities.urls.length !== 0 &&(contentString = makeLink(contentString))
+
+        //pass back re formatted text to display in body
+        return contentString
+    }
+
     //close off the passing of dangerous html to populate the text of the rendered text
     const createMarkup = () => {
         return {
-            __html: entities.media !== undefined
-                    ? stringReplace(entities.media)
-                    : full_text
+            __html: checkForUrls()
         }
     }
 
-    //TODO: remove media url from text via regex and media -> url params / click through links for other urls (check data coming in to match up)
     return(
         <div className='border border-light rounded p-2 fave xyz-in' xyz='fade down stagger-3'>
             <UserInfo userData={ user } />
