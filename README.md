@@ -1,70 +1,38 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Twi-Likes
+ 
+## Contents
+ 
+# [Overview](#overview)
+# [Instructions](#instructions)
+# [Resources](#resources)
+ 
+## Overview
+Twi-Likes is a reference tool that pulls in a specified Twitter user's liked tweets and displays them. Each displayed tweet incorporates any images
+and links in the original body. The author's profile picture, name, and username is also displayed which is clickable in order to show their likes.
+ 
+The tool uses the twitter developer api in order to search and pull in an object populated by the requested user's (currently 10) latest liked tweets.
+Should the user not exist or an incorrect username be entered into the search form, a warning will be displayed on the page. Using AnimXYZ, a successful
+search will animate in the supplied liked tweets. The search bar can also be collapsed to clean up the screen when browsing the tweets, which is enabled
+using Bootstrap.
+ 
+This tool also incorporates local storage, so if a user navigates away, or closes the page, they will have their last search saved when they come back.
+However, if the user does not want this information saved to their computer an option is displayed to turn off this ability when they first use the tool.
+ 
+As the tool uses Bootstrap, it is optimised for all major screen sizes.
+ 
+## Instructions
+* clone the files from the repo then install all dependencies with `yarn add`
+* then navigate into the server folder in the terminal via `cd server` and run the server `node server`
+* to open the project in dev mode run the mpn command `npm start` and the project will open up in the browser (localhost:3000)
+* `npm build` will compile a production ready version of the project
+ 
+## Resources
+[Twitter Developer](https://developer.twitter.com/en) - portal for twitter's developer documentation and application.
+ 
+[AnimXYZ](https://animxyz.com/) - framework for css based animations.
+ 
+[Bootstrap](https://getbootstrap.com/) - component and css framework.
+ 
+[geeksforgeeks - regex](https://www.geeksforgeeks.org/javascript-replace-multiple-strings-with-multiple-other-strings/) - running through a series of strings and matching a known url to one in the string, then removing it.
+ 
+[stackoverflow - regex](https://stackoverflow.com/questions/4870769/removing-backslashes-from-strings-in-javascript) - small regex to remove backslashes added to a string from a previous regex.
