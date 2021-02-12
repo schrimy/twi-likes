@@ -2,9 +2,9 @@
  
 ## Contents
  
-### [Overview](#overview)
-### [Instructions](#instructions)
-### [Resources](#resources)
+* [Overview](#overview)
+* [Instructions](#instructions)
+* [Resources](#resources)
  
 ## Overview
 Twi-Likes is a reference tool that pulls in a specified Twitter user's liked tweets and displays them. Each displayed tweet incorporates any images
