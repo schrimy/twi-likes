@@ -3,6 +3,7 @@
 @import '../../node_modules/bootstrap/scss/mixins';
 
 $sb-width: 0.4rem;
+$secondary: #03f8f8;
 
 html {
     height: 100%;
@@ -22,7 +23,7 @@ header {
 
 //scrollbar params for firefox and the rest (webkit)
 #tweet-content {
-    scrollbar-color: #0877f5 #00000066;
+    scrollbar-color: $secondary #00000066;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
@@ -31,7 +32,7 @@ header {
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #0877f5;
+        background: $secondary;
         border-radius: 2em;
     }
 }
@@ -46,7 +47,7 @@ header {
 }
 
 .dark-top {
-    background:rgba(3, 240, 248, 0.432);
+    background:$secondary;
 }
 
 .clickable {
@@ -63,10 +64,27 @@ header {
 .btn-primary:not(:disabled):not(.disabled):active:focus {
     box-shadow: none;
 }
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.custom-control-input:before,
+.custom-control-label::after {
+    cursor: pointer;
+}
+
 //clear bootstrap box shadow on focus for switch
 .custom-control-input:focus ~
 .custom-control-label::before {
     box-shadow: none;
+}
+
+//change bootstrap custom switch background colour
+.custom-control-input:checked ~
+.custom-control-label::before {
+    background-color: $secondary;
+    border-color: $secondary;
 }
 
 .fave {

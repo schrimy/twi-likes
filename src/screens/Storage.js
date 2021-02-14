@@ -32,7 +32,7 @@ const Storage = () => {
                     <label className='custom-control-label' htmlFor='customSwitch1' />
                 </div>
                 <p className='text-center'>This option saves your last search, on your computer, for next time. If turned off the search will be lost.</p>
-                <button className='btn btn-primary' onClick={ handleClick }>
+                <button className='btn btn-info' onClick={ handleClick }>
                     Save
                 </button>
             </div>

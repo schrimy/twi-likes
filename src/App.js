@@ -28,7 +28,7 @@ function App(props) {
         <TwitUserForm />
         {
           user !== undefined && (
-            <div id='rounder' className='dark-top container d-flex flex-column pb-1 border-bottom border-dark'>
+            <div id='rounder' className='dark-top container d-flex flex-column pb-1 border-bottom border-dark text-body'>
               <span className='pt-1 pb-2'>Tweets liked by:</span>
               <UserInfo userData={ user } />
             </div>
