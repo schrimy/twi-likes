@@ -19,11 +19,9 @@ export const handleUserInfo = (userName) => {
  }
 }
 
-//separate data into needed slices and dispatch to relevant actions to be sent to reducers
+//loac storage username is sent to userClicked action in order to reload up to date likes list
 export const handleLocalStorage = (lsData) => {
     return (dispatch) => {
-        /*dispatch(receiveFaves(lsData.likes))
-        dispatch(receiveUser(lsData.user))*/
         dispatch(userClicked(lsData.data.username))
     }
 }
