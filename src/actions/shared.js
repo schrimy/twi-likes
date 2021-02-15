@@ -1,6 +1,7 @@
 import { receiveUser, clearUser } from './user'
 import { receiveFaves, clearFaves } from './favorites'
 import { getTwitLikes, getTwitUser } from '../utils/helpers'
+import { userClicked } from './userClicked'
 
 //call helpers then the favourite and user receive actions
 export const handleUserInfo = (userName) => {
@@ -21,8 +22,9 @@ export const handleUserInfo = (userName) => {
 //separate data into needed slices and dispatch to relevant actions to be sent to reducers
 export const handleLocalStorage = (lsData) => {
     return (dispatch) => {
-        dispatch(receiveFaves(lsData.likes))
-        dispatch(receiveUser(lsData.user))
+        /*dispatch(receiveFaves(lsData.likes))
+        dispatch(receiveUser(lsData.user))*/
+        dispatch(userClicked(lsData.data.username))
     }
 }
 

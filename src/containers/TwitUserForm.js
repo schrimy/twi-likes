@@ -44,7 +44,7 @@ const TwitUserForm = (props) => {
             setUserName('')
             spinner.current.hidden = true
             //checks to see if prefs have been set to false for storage, if so them don't store search data in local storage.
-            JSON.parse(localStorage.getItem(STORAGE_PREFS)) !== false &&(localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data)))
+            JSON.parse(localStorage.getItem(STORAGE_PREFS)) !== false &&(localStorage.setItem(TWITTER_DATA_KEY, JSON.stringify(data.user)))
             setUserError(false)
         })
         .catch(err => {
