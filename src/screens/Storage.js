@@ -31,7 +31,8 @@ const Storage = () => {
                     <input type='checkbox' className='custom-control-input' id='customSwitch1' ref={ pref } defaultChecked />
                     <label className='custom-control-label' htmlFor='customSwitch1' />
                 </div>
-                <p className='text-center pl-2 pr-2'>This option saves your last search, on your computer, for next time. If turned off the search will be lost.</p>
+                <p className='text-center pl-2 pr-2'>This option saves your last search, on your computer, for next time. If turned off the search will be lost.
+                This data is <em>NOT</em> saved anywhere else or shared with anyone.</p>
                 <button className='btn btn-info' onClick={ handleClick }>
                     Save
                 </button>

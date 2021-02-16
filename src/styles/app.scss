@@ -44,6 +44,11 @@ header {
 #rounder {
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
+
+    span:first-child {
+        font-weight: bold;
+        font-style: italic;
+    }
 }
 
 .dark-top {
