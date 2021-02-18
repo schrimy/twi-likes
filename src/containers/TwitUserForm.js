@@ -24,7 +24,6 @@ const TwitUserForm = (props) => {
      **/
     useEffect(() => {
         if(userClicked !== null) {
-            console.log('use effect for user click')
             handleSubmit(new Event('click'), userClicked)
         }
     }, [userClicked])//eslint-disable-line react-hooks/exhaustive-deps
@@ -118,7 +117,6 @@ const TwitUserForm = (props) => {
 }
 
 function mapStateToProps({ userClicked }) {
-    console.log('twit form clicked user name:', userClicked)
     return {
         userClicked
     }

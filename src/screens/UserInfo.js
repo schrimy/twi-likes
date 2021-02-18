@@ -7,7 +7,6 @@ const UserInfo = (props) => {
     const { profile_image_url, name, username, screen_name } = props.userData
 
     const handleClick = () => {
-        console.log('user click:', screen_name || username)
         props.userClicked(screen_name || username)
     }
 

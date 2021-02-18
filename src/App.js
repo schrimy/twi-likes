@@ -14,7 +14,6 @@ function App(props) {
 
   //useEffect to run on mount only, hence es lint disable, if data in localstorage dispatch to reducers to populate store state
   useEffect(() => {
-    console.log('checking localStorage')
     localStorage.getItem(TWITTER_DATA_KEY) !== null &&(
       handleLocalStorage(JSON.parse(localStorage.getItem(TWITTER_DATA_KEY)))
     )

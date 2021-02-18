@@ -8,7 +8,6 @@ const Storage = () => {
 
     //when the save btn is clciked the pref is saved in local storage, if false then clear any saved search data.
     const handleClick = () => {
-        console.log('save pref clicked:', pref.current.checked)
         localStorage.setItem(STORAGE_PREFS, pref.current.checked)
 
         if(!pref.current.checked) {
