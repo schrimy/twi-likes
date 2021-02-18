@@ -6,11 +6,13 @@ const cors = require('cors')
 const path = require('path')
 
 const app = express()
-app.use(express.static('public'))
+//change this to 'public' when running dev server
+app.use(express.static('build'))
 app.use(cors())
 
 app.get('/', (req, res) => {
-    //res.sendFile(path.resolve('build/index.html'))
+    //comment out below when running dev server
+    res.sendFile(path.resolve('build/index.html'))
 })
 
 //use twitter-v2 to get user info and profile img
@@ -63,6 +65,11 @@ app.get('/getTwits/:user', (req, res) => {
     })
 })
 
-app.listen(3001, () => {
-    console.log('server listening on port 3001')
+let port = process.env.port
+if(port === 'null' || port === '') {
+    port = 8000
+}
+
+app.listen(port, () => {
+    console.log(`server listening on port ${port}`)
 })
