@@ -1,7 +1,7 @@
-//const devPath = 'http://localhost:3001'
+const devPath = 'http://localhost:3001'
 //async call the twitter api to gey a specific user
 const getTwitLikes = async (userName) => {
-   const res = await fetch(`/getTwits/${userName}`)
+   const res = await fetch(`${devPath}/getTwits/${userName}`)
     
     try {
         const data = await res.json()
@@ -12,7 +12,7 @@ const getTwitLikes = async (userName) => {
 }
 
 const getTwitUser = async (userName) => {
-    const res = await fetch(`/getUser/${userName}`)
+    const res = await fetch(`${devPath}/getUser/${userName}`)
 
     try {
         const user = await res.json()

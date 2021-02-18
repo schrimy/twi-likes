@@ -3,13 +3,14 @@ const Twitter = require('twitter-lite')
 const TwitterTwo = require('twitter-v2')
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 
 const app = express()
 app.use(express.static('public'))
 app.use(cors())
 
-app.get('/', () => {
-    console.log('welcome!')
+app.get('/', (req, res) => {
+    //res.sendFile(path.resolve('build/index.html'))
 })
 
 //use twitter-v2 to get user info and profile img
