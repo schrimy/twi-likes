@@ -11,7 +11,6 @@ app.use(express.static('build'))
 app.use(cors())
 
 app.get('/', (req, res) => {
-    //comment out below when running dev server
     res.sendFile(path.resolve('build/index.html'))
 })
 
@@ -65,11 +64,6 @@ app.get('/getTwits/:user', (req, res) => {
     })
 })
 
-let port = process.env.port
-if(port === 'null' || port === '') {
-    port = 8000
-}
-
-app.listen(port, () => {
-    console.log(`server listening on port ${port}`)
+app.listen(3001, () => {
+    console.log('server listening on port 3001')
 })

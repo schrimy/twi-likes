@@ -22,9 +22,8 @@ As the tool uses Bootstrap, it is optimised for all major screen sizes.
  
 ## Instructions
 * clone the files from the repo then install all dependencies with `yarn add`
-* then navigate into the server folder in the terminal via `cd server` and run the server `node server`
-* to open the project in dev mode run the mpn command `npm start` and the project will open up in the browser (localhost:3000)
-* `npm build` will compile a production ready version of the project
+* then run the yarn command `yarn start` followed by `yarn dev-build`, which will open up the dev server in the browser (localhost:3000)
+* `yarn build` will compile a production ready version of the project
  
 ## Resources
 [Twitter Developer](https://developer.twitter.com/en) - portal for twitter's developer documentation and application.
