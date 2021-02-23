@@ -1,9 +1,18 @@
-import { receiveUser, clearUser } from './user'
-import { receiveFaves, clearFaves } from './favorites'
-import { getTwitLikes, getTwitUser } from '../utils/helpers'
+import {
+    receiveUser,
+    clearUser
+} from './user'
+import {
+    receiveFaves,
+    clearFaves
+} from './favorites'
+import {
+    getTwitLikes,
+    getTwitUser
+} from '../utils/helpers'
 import { userClicked } from './userClicked'
 
-//call helpers then the favourite and user receive actions
+//call helpers then the favourite and user 'receive' actions to populate store -> UI
 export const handleUserInfo = (userName) => {
  return (dispatch) => {
      return Promise.all([getTwitLikes(userName), getTwitUser(userName)])
@@ -19,7 +28,7 @@ export const handleUserInfo = (userName) => {
  }
 }
 
-//loac storage username is sent to userClicked action in order to reload up to date likes list
+//local storage username is sent to userClicked action in order to reload up to date likes list
 export const handleLocalStorage = (lsData) => {
     return (dispatch) => {
         dispatch(userClicked(lsData.data.username))

@@ -1,7 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, {
+    useState,
+    useRef,
+    useEffect
+} from 'react'
 import { connect } from 'react-redux'
-import { handleUserInfo, handleClearing } from '../actions/shared'
-import { TWITTER_DATA_KEY, STORAGE_PREFS } from '../utils/constants'
+import {
+    handleUserInfo,
+    handleClearing
+} from '../actions/shared'
+import {
+    TWITTER_DATA_KEY,
+    STORAGE_PREFS
+} from '../utils/constants'
 
 import Alert from '../screens/Alert'
 import Icons from 'bootstrap-icons/bootstrap-icons.svg'
@@ -14,6 +24,7 @@ const TwitUserForm = (props) => {
     const spinner = useRef()
     const startText = useRef()
 
+    //make sure loading spinner is hidden to start
     useEffect(() => {
         spinner.current.hidden = true
     })
@@ -54,6 +65,8 @@ const TwitUserForm = (props) => {
         })
     }
 
+    //constains a bootstrap form to submit username search via twitter api, plus button to collapse form to make room
+    //also has an error message and initial directions elements which are visable dependent on if relevant data is set
     return(
         <div className='dark-top'>
             <div className='container d-flex flex-column pt-2 pb-2'>
@@ -116,10 +129,12 @@ const TwitUserForm = (props) => {
     )
 }
 
+//checks store to see if another username has been clicked -> send that name to search
 function mapStateToProps({ userClicked }) {
     return {
         userClicked
     }
 }
 
+//grabs specified store state and passes in actions to call when getting user data or to clear that data when performing new search
 export default connect(mapStateToProps, { handleUserInfo, handleClearing })(TwitUserForm)

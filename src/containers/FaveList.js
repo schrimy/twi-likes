@@ -23,7 +23,7 @@ const FaveList = (props) => {
     )
 }
 
-//grabs the favourites from store state and returns an array verison
+//grabs the favourites/likes from store state and returns an array verison
 function mapStateToProps({ favourites }) {
     return {
         faveList: favourites !== null 

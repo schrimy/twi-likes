@@ -5,8 +5,8 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 
+//set up server for async api calls and data retrieval
 const app = express()
-//change this to 'public' when running dev server
 app.use(express.static('build'))
 app.use(cors())
 
@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 app.get('/getUser/:user', (req, res) => {
     const userName = req.params.user
 
+    //use api keys to authenticate twitter api
     const clientTwo = new TwitterTwo({
         consumer_key: process.env.REACT_APP_KEY,
         consumer_secret: process.env.REACT_APP_SECRET_KEY,
@@ -25,6 +26,7 @@ app.get('/getUser/:user', (req, res) => {
         access_token_secret: process.env.REACT_APP_ACCESS_SECRET
     })
 
+    //grab user information and profile pic via username endpoint
     clientTwo.get(`users/by/username/${userName}`, {
         user: {
             fields: 'profile_image_url'
@@ -39,9 +41,11 @@ app.get('/getUser/:user', (req, res) => {
     })
 })
 
+//use twitter lite to grab user defined last 10 liked tweets
 app.get('/getTwits/:user', (req, res) => {
     const userName = req.params.user
 
+    //use api keys in .env to access twitter api
     const client = new Twitter({
         consumer_key: process.env.REACT_APP_KEY,
         consumer_secret: process.env.REACT_APP_SECRET_KEY,
@@ -49,7 +53,7 @@ app.get('/getTwits/:user', (req, res) => {
         access_token_secret: process.env.REACT_APP_ACCESS_SECRET
     })
 
-    //endpoint url and params here
+    //endpoint url and params here, then send data to client side if successful
     client.get('favorites/list', {
         count: 10,
         screen_name: userName,

@@ -19,7 +19,6 @@ function App(props) {
     )
   }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
-  //TODO: if localstorage has saved user send that name to search + don't store last list of tweets as it could be old.
   //if user state is populated, show faves list
   return (
     <Fragment>
