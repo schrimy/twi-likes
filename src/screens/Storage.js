@@ -1,7 +1,10 @@
 import React, { useRef } from 'react'
-import { STORAGE_PREFS, TWITTER_DATA_KEY } from '../utils/constants'
+import {
+    STORAGE_PREFS,
+    TWITTER_DATA_KEY
+} from '../utils/constants'
 
-//storgae pref component to allow user to choose if data is stored on their computer for user searches
+//storage pref component to allow user to choose if data is stored on their computer for user searches
 const Storage = () => {
     const pref = useRef()
     const container = useRef()
@@ -10,6 +13,7 @@ const Storage = () => {
     const handleClick = () => {
         localStorage.setItem(STORAGE_PREFS, pref.current.checked)
 
+        //if the user chooses not to use local storage, remove any currently saved data
         if(!pref.current.checked) {
             localStorage.removeItem(TWITTER_DATA_KEY)
         }
@@ -21,6 +25,7 @@ const Storage = () => {
         }, 1000)
     }
 
+    //renders storage preference component with text, bootstrap switch and button to confirm/save user choice
     return(
         <div className='fixed-bottom bg-light pb-3 text-dark' xyz='fade down' ref={ container }>
             <div className='d-flex flex-column align-items-center'>

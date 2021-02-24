@@ -1,5 +1,6 @@
 const devPath = 'http://localhost:3001'
-//async call the twitter api to gey a specific user
+
+//async call the server twitter api to get a specific user, send reject on failure to be handled
 const getTwitLikes = async (userName) => {
    const res = await fetch(`${devPath}/getTwits/${userName}`)
     
@@ -11,6 +12,7 @@ const getTwitLikes = async (userName) => {
     }
 }
 
+//async call the server twitter api to get the user information and pass back. If rejected the failure is passed back to be handled correctly
 const getTwitUser = async (userName) => {
     const res = await fetch(`${devPath}/getUser/${userName}`)
 

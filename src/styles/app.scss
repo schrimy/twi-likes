@@ -2,9 +2,15 @@
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 
+/*
+* css variables
+*/
 $sb-width: 0.4rem;
 $secondary: #03f8f8;
 
+/*
+* general html tags
+*/
 html {
     height: 100%;
 
@@ -21,6 +27,9 @@ header {
     background: #0a0a0a5d;
 }
 
+/*
+* id's for elements that need individual changes
+*/
 //scrollbar params for firefox and the rest (webkit)
 #tweet-content {
     scrollbar-color: $secondary #00000066;
@@ -51,6 +60,9 @@ header {
     }
 }
 
+/*
+* changes to some bootstarp classes
+*/
 .dark-top {
     background:$secondary;
 }

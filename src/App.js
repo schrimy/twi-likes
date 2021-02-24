@@ -1,8 +1,11 @@
-import React, { Fragment, useEffect } from 'react'
+import React, {
+  Fragment,
+  useEffect
+} from 'react'
 import { connect } from 'react-redux'
 import { TWITTER_DATA_KEY, STORAGE_PREFS } from './utils/constants'
 import { handleLocalStorage } from './actions/shared'
-
+//component imports
 import TwitUserForm from './containers/TwitUserForm'
 import FaveList from './containers/FaveList'
 import UserInfo from './screens/UserInfo'
@@ -19,7 +22,8 @@ function App(props) {
     )
   }, [])//eslint-disable-line react-hooks/exhaustive-deps
 
-  //if user state is populated, show faves list
+  //if user state is populated, show faves list. If storage prefs have not been selected show the prefs component.
+  //If user information is present also show who the likes belong to
   return (
     <Fragment>
       <main className="container list-container App d-flex flex-column vh-100 pl-0 pr-0 pb-lg-5 pb-3">
@@ -49,11 +53,12 @@ function App(props) {
   )
 }
 
-//grabs the store state of favourites and user and returns a boolean based on if both are populated
+//grabs the store state of the user, returns undefined if null or returns the data if set. If set the relevant components are shown in the render function.
 function mapStateToProps({ user }) {
   return {
     user: user !== null ? user.data : undefined
   }
 }
 
+//sets the data in mapState to be resloved, and passes in the action to handle data if found in local storage
 export default connect(mapStateToProps, { handleLocalStorage })(App)

@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+    useEffect,
+    useState
+} from 'react'
 import UserInfo from './UserInfo'
 
 const Fave = (props) => {
-    //grab wanted parameters from passed in data prop for tweet
+    //grab wanted parameters from passed in data prop for tweet, from parent list component
     const { full_text, created_at, user, entities } = props.data
 
     const [dateText, setDateText] = useState('')
@@ -16,7 +19,6 @@ const Fave = (props) => {
     //https://www.geeksforgeeks.org/javascript-replace-multiple-strings-with-multiple-other-strings/
     //helper to remove unwanted url's in text field, is sent an array of urls to add to regex which is used to know what to replace.
     const stringReplace = (arr) => {
-
         const re = new RegExp(arr.map(item => (
             item.url
         )).join('|'), 'gi')
@@ -58,6 +60,7 @@ const Fave = (props) => {
         }
     }
 
+    //renders user info component liked tweet html and any embeded images in the tweet
     return(
         <div className='border border-light rounded p-2 fave xyz-in' xyz='fade down stagger-3'>
             <UserInfo userData={ user } />

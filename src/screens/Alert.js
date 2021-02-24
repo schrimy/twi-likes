@@ -2,6 +2,7 @@ import React from 'react'
 
 const Alert = (props) => {
 
+    //function to call the callback passed in to reset the error boolean -> hidding the alert
     const handleClick = () => {
         props.cb(false)
     }
